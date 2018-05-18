@@ -152,6 +152,7 @@ function editText(evt) {
   tc_modal.style.display = "block";
   let tc_text = tc_modal.getElementsByClassName("textToChange")[0];
   tc_text.focus();
+  tc_text.scrollIntoView();
   // save info about editted task
   let list = this.parentNode.parentNode; // todo or completed
   let id = list.id; // list name
