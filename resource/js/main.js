@@ -61,13 +61,13 @@ function checkInputValue(evt) {
 function addNewTask(taskValueText, target, onInit) {
   //console.log('New task has been added to your ToDoList' + ' = ' + taskValueText)
 
-  var list = document.getElementById(target);
-  var item = document.createElement("li");
-  var editButton = document.createElement("button");
-  var taskText = document.createElement("p");
-  var buttons = document.createElement("div");
-  var remove = document.createElement("button");
-  var complete = document.createElement("button");
+  let list = document.getElementById(target);
+  let item = document.createElement("li");
+  let editButton = document.createElement("button");
+  let taskText = document.createElement("p");
+  let buttons = document.createElement("div");
+  let remove = document.createElement("button");
+  let complete = document.createElement("button");
 
   editButton.classList.add("editButton");
   taskText.classList.add("taskText");
@@ -167,24 +167,21 @@ function editText(evt) {
 }
 
 //
-function updateTaskString() {  
+function updateTaskString() {
   let tc_text = tc_modal.getElementsByClassName("textToChange")[0];
-  //neet to convert any double whiteSpace between characters into 1
   let textToSave = trimMultipleSpaces(tc_text.value);
-  // if there are any whitespaces at the end, remove them too
   textToSave = trimLastWhiteSpace(textToSave);
   currentItem.innerText = textToSave;
   console.log(tc_text.value);
 
   let itemIndex = data[currentList].indexOf(currSelectedText);
   data[currentList][itemIndex] = textToSave;
-  saveData(); 
+  saveData();
   tc_modal.style.display = "none";
 }
 
 //
 function closeModal() {
-  
   tc_modal.style.display = "none";
 }
 
@@ -209,4 +206,32 @@ function trimMultipleSpaces(x) {
 //
 function trimLastWhiteSpace(x) {
   return x.replace(/\s*$/, "");
+}
+
+const headerInput = document.getElementsByClassName("headerInput")[0];
+const textToChange = document.getElementsByClassName("textToChange")[0];
+
+headerInput.addEventListener("keyup", makeChanges);
+textToChange.addEventListener("keyup", makeChanges);
+function makeChanges(evt) {
+  if (evt.key === "Enter") {
+    // Do work
+    if (this.getAttribute("class") === "headerInput") {
+      if (this.value.trim().length == 0) 
+      {
+        return;
+      }
+      addNewTask(this.value, "todo", false);
+    }
+    if (this.getAttribute("class") === "textToChange")
+    {
+       updateTaskString();
+    }
+  }
+  if (evt.key === "Escape") {
+    if (this.getAttribute("class") === "textToChange")
+    {
+       closeModal();
+    }
+  }
 }

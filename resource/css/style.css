@@ -155,7 +155,7 @@ ul.completed li {
     cursor:pointer;
 }
 .taskText {
-    width:calc(100% - 170px);
+    width:calc(100% - 156px);
     float: left;
     padding: 0 0 0 18px;
     position: relative;
@@ -206,6 +206,7 @@ ul.todo#todo:empty:after {
 
 ul.todo#completed:empty:after {
     content: 'You have yet to complete any tasks';
+    margin: 15px 0 30px 0;
 }
 
 ul.todo#todo:after,
