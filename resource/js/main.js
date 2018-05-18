@@ -228,10 +228,10 @@ function makeChanges(evt) {
        updateTaskString();
     }
   }
-  if (evt.key === "Escape") {
+  if (evt.key === "Escape" || evt.keyCode == 27) {
     if (this.getAttribute("class") === "textToChange")
     {
-       closeModal();
+      closeModal();
     }
   }
 }
