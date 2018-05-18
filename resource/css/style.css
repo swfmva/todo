@@ -1,0 +1,287 @@
+@charset "UTF-8";
+body,
+input,
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #edf0f1;
+    padding: 80px 0 0 0;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: #25b99a;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+}
+
+header input {
+    width: 100%;
+    height: 50px;
+    float: fixed;
+    padding: 0 60px 0 0;
+    /*make text stop at button "addItem" */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px 25px 25px 5px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600px;
+    text-indent: 20px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*fix text input color depending on browser*/
+
+header input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .75);
+}
+
+header input:-moz-input-placeholder {
+    color: rgba(255, 255, 255, .75);
+}
+
+header input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .75);
+}
+
+header input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, .75);
+}
+
+header button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    /* stack order - aka depth */
+    border-radius: 25px;
+    background: #fff;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+header button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    margin: -8px 0 0 -8px;
+    background: #FFF;
+}
+
+div button.remove svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin: -10px 0 0 -10px;
+    background: #FFF;
+}
+
+#todo button.complete svg .fill {
+    fill: #aaa;
+}
+
+div button.complete svg {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    margin: -18px 0 0 -18px;
+    background: none;
+}
+
+.fill {
+    fill: #25b99a;
+}
+
+.container {
+    width: 100%;
+    float: left;
+}
+
+ul.todo,
+ul.completed {
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+ul.todo li,
+ul.completed li {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0 0 10px 0;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.15);
+    position: relative;
+}
+.editButton
+{
+    width:30px;
+    height:32px;
+    margin:8px 0 8px 8px;
+    padding:0;
+    float:left;
+    border: none;
+    background:#aaa;
+    outline: none;
+    cursor:pointer;
+}
+.taskText {
+    width:calc(100% - 170px);
+    float: left;
+    padding: 0 0 0 18px;
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    color: #343434;
+    word-wrap: break-word;
+}
+ul.todo li .buttons,
+ul.completed li .buttons {
+    width: 100px;
+    height: 50px;
+    float: right;
+}
+
+ul.todo li .buttons button,
+ul.completed li .buttons button {
+    width: 50px;
+    height: 50px;
+    float: left;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+}
+
+ul.todo#completed {
+    position: relative;
+    padding: 60px 0 0 0;
+}
+
+ul.todo#completed:before {
+    content: '';
+    width: 80%;
+    height: 1px;
+    background: #aaa;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    margin: 0 0 0 -40%;
+}
+
+ul.todo#todo:empty:after {
+    content: 'You have nothing to-do';
+    margin: 15px 0 0 0;
+}
+
+ul.todo#completed:empty:after {
+    content: 'You have yet to complete any tasks';
+}
+
+ul.todo#todo:after,
+ul.todo#completed:after {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.modal
+{
+    display:none;
+    position:fixed;
+    z-index:99;   
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;     
+    background-color:rgba(0,0,0,.5);
+}
+.modal-content
+{
+    background-color:f4f4f4;
+    margin:50% auto;
+    padding:20px;
+    width:70%;
+    height:200px; 
+    background:#fff;    
+    border-radius: 4px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,.2), 0 7px 20px rgba(0,0,0,.17);
+   
+}
+.textToChange
+{
+    width:100%;
+    height:154px; 
+    padding:0;
+    background-color:#eee;
+    resize: none;
+    border:none;
+    outline:none;
+    border-radius: 4px;
+    font-size:20px;
+}
+
+.closeBtn
+{
+    width:30%;
+    height:40px;
+    border:none;
+    margin-top: 8px;
+    background:#e74c3c;
+    color:#2c3e50;
+    float:left;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.confirmBtn
+{
+    width:30%;
+    height:40px;
+    border:none;
+    margin-top: 8px;
+    background:#2ecc71;
+    color:#2c3e50;
+    float:right;
+    border-radius: 4px;
+    font-weight: 600;
+
+}
+.confirmBtn:hover, .confirmBtn:focus, .closeBtn:hover, .closeBtn:focus
+{
+    color:#fff;
+}
+    
