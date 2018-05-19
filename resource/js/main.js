@@ -33,7 +33,7 @@ function initAppFromSave() {
     var todoReversed = data.todo.reverse();
     for (var i = 0; i < todoReversed.length; i++) {
       value = todoReversed[i];
-      addNewTask(value, "todo", true);
+      addNewTask(value, "todo", true); 
       //console.log(value)
     }
     todoReversed.reverse();
